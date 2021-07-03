@@ -32,5 +32,5 @@ const listItemtEl = document.createElement('li');
 listItemtEl.textContent = `${el}`;
 return listItemtEl;
 });
-
+// console.log(listEl);
 ingredientsEl.append(...listEl);
