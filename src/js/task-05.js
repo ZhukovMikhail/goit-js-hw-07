@@ -1,11 +1,13 @@
 const nameInput = document.querySelector('#name-input');
 const nameOutput = document.querySelector('#name-output');
 
-const onInputChange = function(event) {
-    event.preventDefault();
-    if (event.currentTarget.value === ''){
-    return nameOutput.textContent = 'незнакомец'}
-    return nameOutput.textContent = event.currentTarget.value};
-    
-nameInput.addEventListener('change', onInputChange)
+function onInputChange(event) {
+  // event.preventDefault();
+  if (event.currentTarget.value === '') {
+    return (nameOutput.textContent = 'незнакомец');
+  }
+  // console.log(event);
+  return (nameOutput.textContent = event.currentTarget.value);
+}
 
+nameInput.addEventListener('input', onInputChange);

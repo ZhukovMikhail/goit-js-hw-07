@@ -27,10 +27,10 @@ const ingredients = [
 
 const ingredientsEl = document.querySelector('#ingredients');
 
-const listEl = ingredients.map((el) => {
-const listItemtEl = document.createElement('li');
-listItemtEl.textContent = `${el}`;
-return listItemtEl;
+const listEl = ingredients.map(el => {
+  const listItemtEl = document.createElement('li');
+  listItemtEl.textContent = `${el}`;
+  return listItemtEl;
 });
 // console.log(listEl);
 ingredientsEl.append(...listEl);
