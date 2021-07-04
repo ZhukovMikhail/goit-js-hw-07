@@ -1,10 +1,22 @@
 const controls = document.querySelector('#controls');
-const boxes = document.querySelector('#boxes');
 const input = document.querySelector('#controls input');
-const buttonRender = document.querySelector(
+const boxes = document.querySelector('#boxes');
+const renderBtn = document.querySelector(
   '#controls button[data-action="render"]',
 );
-const buttonDestroy = document.querySelector(
+const destroyBtn = document.querySelector(
   '#controls button[data-action = "destroy"]',
 );
 
+// renderBtn.addEventListener('click', createDivHendler);
+// renderBtn.addEventListener('click', destroyDivHendler);
+
+// function createDivHendler() {
+//   boxes.append(elements)
+// }
+
+// function destroyDivHendler () {
+//   boxes.innerHTML('')
+// }
+
+controls.innerHTML ='<h1>Могу списать, но не буду. До конца дня решу сам!</h1>';
