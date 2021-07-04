@@ -18,5 +18,12 @@ const destroyBtn = document.querySelector(
 // function destroyDivHendler () {
 //   boxes.innerHTML('')
 // }
+const title = document.createElement('h2')
+title.textContent = 'Могу списать, но не буду. Хочу решить сам!';
+title.style.color = 'red';
+title.style.backgroundColor = 'teal';
 
-controls.innerHTML ='<h1>Могу списать, но не буду. До конца дня решу сам!</h1>';
+controls.prepend(title);
+
+
+controls.insertAdjacentHTML('beforebegin', 'До конца дня решу!')
