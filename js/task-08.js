@@ -1,29 +1,32 @@
-const controls = document.querySelector('#controls');
-const input = document.querySelector('#controls input');
-const boxes = document.querySelector('#boxes');
-const renderBtn = document.querySelector(
-  '#controls button[data-action="render"]',
-);
-const destroyBtn = document.querySelector(
-  '#controls button[data-action = "destroy"]',
-);
+const refs = {
+  input: document.querySelector('#controls input'),
+  Renderbtn: document.querySelector('#controls button[data-action="render"]'),
+  Destroybtn: document.querySelector('#controls button[data-action="destroy"]'),
+  boxContainer: document.getElementById('boxes'),
+};
 
-// renderBtn.addEventListener('click', createDivHendler);
-// renderBtn.addEventListener('click', destroyDivHendler);
+refs.Renderbtn.addEventListener('click', createBoxes);
+refs.Destroybtn.addEventListener('click', destroyBoxes);
 
-// function createDivHendler() {
-//   boxes.append(elements)
-// }
+function createBoxes() {
+  const number = refs.input.value;
+  const arrayBoxes = [];
+  for (let i = 0; i < number; i += 1) {
+    const box = document.createElement('div');
+    box.style.backgroundColor =
+      '#' + (Math.random().toString(16) + '000000').substring(2, 8);
+    box.style.width = `${30 + i * 10}px`;
+    box.style.height = `${30 + i * 10}px`;
+    box.style.margin = '5px';
+    box.style.borderRadius = '20%';
+    box.style.boxShadow = '5px 5px 5px rgba(0, 0, 0, 0.50)';
+    arrayBoxes.push(box);
+  }
+  refs.boxContainer.append(...arrayBoxes);
+  refs.boxContainer.style.display = 'flex';
+}
 
-// function destroyDivHendler () {
-//   boxes.innerHTML('')
-// }
-const title = document.createElement('h2')
-title.textContent = 'Могу списать, но не буду. Хочу решить сам!';
-title.style.color = 'red';
-title.style.backgroundColor = 'teal';
-
-controls.prepend(title);
-
-
-controls.insertAdjacentHTML('beforebegin', 'До конца дня решу!')
+function destroyBoxes() {
+  refs.boxContainer.innerHTML = '';
+  refs.input.value = '';
+}
