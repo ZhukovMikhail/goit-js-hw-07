@@ -28,25 +28,35 @@ const refs = {
 refs.Renderbtn.addEventListener('click', createBoxes);
 refs.Destroybtn.addEventListener('click', destroyBoxes);
 
+let size = 30;
+
 function createBoxes() {
   const number = refs.input.value;
   const arrayBoxes = [];
+  console.log(arrayBoxes);
+
   for (let i = 0; i < number; i += 1) {
     const box = document.createElement('div');
+    // refs.boxContainer.innerHTML = '';
+
     box.style.backgroundColor =
       '#' + (Math.random().toString(16) + '000000').substring(2, 8);
-    box.style.width = `${30 + i * 10}px`;
-    box.style.height = `${30 + i * 10}px`;
+
+    size += 10;
+    box.style.width = `${size}px`;
+    box.style.height = `${size}px`;
     box.style.margin = '5px';
     box.style.borderRadius = '20%';
     box.style.boxShadow = '5px 5px 5px rgba(0, 0, 0, 0.50)';
+
     arrayBoxes.push(box);
   }
   refs.boxContainer.append(...arrayBoxes);
-  refs.boxContainer.style.display = 'flex';
+  // refs.boxContainer.style.display = 'flex';
 }
 
 function destroyBoxes() {
+  size = 30;
   refs.boxContainer.innerHTML = '';
   refs.input.value = '';
 }
